@@ -1,0 +1,6 @@
+@EndUserText.label: 'PO Details'
+define service Zsd_po_detail {
+  expose ZAB_I_PoDetails;
+  expose ZAB_I_EKPO      as POitems;
+  expose ZAB_I_LFA1      as POVendor;
+}
