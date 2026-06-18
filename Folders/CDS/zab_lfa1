@@ -1,0 +1,21 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'VENDOR CDS VIEW'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZAB_I_LFA1
+  as select from zab_lfa1
+{
+      @UI.identification: [{ position: 10 , label: 'Vendor Number' }]
+  key lifnr         as Lifnr,
+      @UI.identification: [{ position: 20, label: 'Name' }]
+      name          as Name,
+      @UI.identification: [{ position: 30, label: 'Mobile Number' }]
+      mobile        as Mobile,
+      @UI.identification: [{ position: 40, label: 'E-Mail' }]
+      email_address as EmailAddress,
+      @UI.identification: [{ position: 50, label: 'City' }]
+      city_name     as CityName,
+      @UI.identification: [{ position: 60, label: 'Country' }]
+      country       as Country,
+      ernam         as Ernam
+}
