@@ -1,0 +1,17 @@
+@EndUserText.label : 'VENDOR DETAILS'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zab_lfa1 {
+
+  key client    : abap.clnt not null;
+  key lifnr     : lifnr not null;
+  name          : name1_a;
+  mobile        : /dmo/phone_number;
+  email_address : /dmo/email_address;
+  city_name     : /dmo/city;
+  country       : land1;
+  ernam         : abp_creation_user;
+
+}
