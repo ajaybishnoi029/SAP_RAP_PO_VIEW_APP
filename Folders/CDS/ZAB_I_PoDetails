@@ -1,0 +1,40 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'PO Details CDS VIEW'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity ZAB_I_PoDetails
+  as select from zab_ekko as _EKKO
+  association [1..*] to ZAB_I_EKPO as _Item   on $projection.ebeln = _Item.Ebeln
+  association [1..1] to ZAB_I_LFA1 as _Vendor on $projection.lifnr = _Vendor.Lifnr
+{
+      @UI.facet: [{
+      id: 'idPOVendor',  position: 10,
+      label: 'Vendor Details', type: #IDENTIFICATION_REFERENCE, targetElement: '_Vendor'
+       },
+       {
+      id: 'idPOitems', purpose: #STANDARD, position: 20,
+      label: 'PO Items', type: #LINEITEM_REFERENCE, targetElement: '_Item'
+       }
+        ]
+
+      @UI.lineItem: [{ position: 10, label: 'PO Number' }]
+      @UI.selectionField: [{ position: 10 }]
+        key _EKKO.ebeln,
+      @UI.lineItem: [{ position: 20, label: 'Doc Type' }]
+      _EKKO.bstyp,
+      @UI.lineItem: [{ position: 30, label: 'Vendor' }]
+      _EKKO.lifnr,
+      @UI.lineItem: [{ position: 35, label: 'Vendor Name' }]
+      _Vendor.Name,
+      @UI.lineItem: [{ position: 40, label: 'Org' }]
+      @UI.selectionField: [{ position: 20 }]
+      _EKKO.ekorg,
+      @UI.lineItem: [{ position: 50, label: 'Date' }]
+      @UI.selectionField: [{ position: 30 }]
+      _EKKO.bedat,
+      @UI.lineItem: [{ position: 60, label: 'Created by' }]
+      _EKKO.ernam,
+      _Item,
+      _Vendor
+}
