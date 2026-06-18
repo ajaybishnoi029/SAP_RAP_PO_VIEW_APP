@@ -1,0 +1,16 @@
+@EndUserText.label : 'PURCHASE ORDER TABLE'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zab_ekko {
+
+  key ebeln : ebeln not null;
+  bukrs     : bukrs;
+  bstyp     : bstyp;
+  lifnr     : lifnr;
+  ekorg     : ekorg;
+  bedat     : bedat;
+  ernam     : abp_creation_user;
+
+}
