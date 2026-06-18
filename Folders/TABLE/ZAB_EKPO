@@ -1,0 +1,20 @@
+@EndUserText.label : 'PURCHASE ORDER ITEM TABLE'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zab_ekpo {
+
+  key ebeln : ebeln not null;
+  key ebelp : ebelp not null;
+  matnr     : matnr;
+  werks     : werks_d;
+  @Semantics.quantity.unitOfMeasure : 'zab_ekpo.meins'
+  menge     : menge_d;
+  meins     : meins;
+  @Semantics.amount.currencyCode : 'zab_ekpo.waers'
+  netpr     : abap.curr(13,2);
+  waers     : abap.cuky;
+  mwskz     : mwskz;
+
+}
