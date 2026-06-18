@@ -1,0 +1,26 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'EKPO CDS VIEW'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZAB_I_EKPO
+  as select from zab_ekpo
+{
+      @UI.lineItem: [{ position: 10, label: 'PO Number' }]
+  key ebeln as Ebeln,
+      @UI.lineItem: [{ position: 20, label: 'PO Item' }]
+  key ebelp as Ebelp,
+      @UI.lineItem: [{ position: 30, label: 'Material' }]
+      matnr as Matnr,
+      @UI.lineItem: [{ position: 40, label: 'plant' }]
+      werks as Werks,
+      @UI.lineItem: [{ position: 50, label: 'Quantity' }]
+      @Semantics.quantity.unitOfMeasure: 'MEINS'
+      menge as Menge,
+      meins as Meins,
+      @Semantics.amount.currencyCode: 'WAERS'
+      @UI.lineItem: [{ position: 60, label: 'Amount' }]
+      netpr as Netpr,
+      waers as Waers,
+      @UI.lineItem: [{ position: 45, label: 'Tax Code' }]
+      mwskz as Mwskz
+}
